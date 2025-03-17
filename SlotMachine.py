@@ -1,7 +1,24 @@
 import random
 
 
+
+def Deposit(bal):
+    check = True
+
+    while check:
+        depo = input("Enter the amount you would like to deposit: ")
+        if depo.isdigit:
+            bal += int(depo)
+            check = False
+            return bal
+        else:
+            print("Please enter a valid amount")
+
+
+
 def main():
+    bal= 0
+   
     print("**********************************")
     print("* Welcome to Python Slot Machine *")
     print("**********************************")
@@ -18,6 +35,10 @@ def main():
         i+=1
     print("")
     print("***********************")
+    
+    bal = Deposit(bal)
+
+    print(f"Your current balence: {bal}")
 
 
 
