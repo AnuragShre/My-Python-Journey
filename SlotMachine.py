@@ -7,12 +7,13 @@ def Deposit(bal):
 
     while check:
         depo = input("Enter the amount you would like to deposit: ")
-        if depo.isdigit:
-            bal += int(depo)
-            check = False
-            return bal
+        if not depo.isdigit():
+             print("Please enter a valid amount")
+             continue
         else:
-            print("Please enter a valid amount")
+            check = False
+    bal += int(depo)
+    return bal
 
 
 
@@ -38,7 +39,7 @@ def main():
     
     bal = Deposit(bal)
 
-    print(f"Your current balence: {bal}")
+    print(f"Your current balance: {bal}")
 
 
 
