@@ -15,10 +15,31 @@ def Deposit(bal):
     bal += int(depo)
     return bal
 
-def spin(symbols):
+
+def pay(bal,random_symbols):
+    if random_symbols[0] == random_symbols[1] == random_symbols[2]:
+        print("You won!")
+        bal = 10
+        return bal
+    else:
+        print("you lost!")
+        bal = -10
+        return bal
+
+
+def spin(symbols,bal):
+
+
     random_symbols = []
     for i in range(3):
         random_symbols.append(random.choice(symbols))
+        print(random_symbols[i],end=" | ")
+
+    print("")
+    return random_symbols
+
+
+            
 
     
 
@@ -29,7 +50,7 @@ def main():
     print("* Welcome to Python Slot Machine *")
     print("**********************************")
     print("")
-    print("The following symbols are available")
+    print("We have following symbols")
     print("")
     symbols = ["🍉","🍌","🔔","🌟"]
     i = 0
@@ -43,12 +64,15 @@ def main():
     print("***********************")
     
     bal = Deposit(bal)
+    while bal > 0:
+        random_symbols = spin(symbols,bal)
+        print(bal)
 
-    
-    spin(symbols)
-
-
-
+        bal += pay(bal,random_symbols)
+        print("Would you like to spin again?")
+        ans = input("y/n: ")
+        if ans != "y":
+            break
 
 if __name__ == "__main__":
     main()
