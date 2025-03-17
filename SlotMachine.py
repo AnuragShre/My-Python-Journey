@@ -15,7 +15,12 @@ def Deposit(bal):
     bal += int(depo)
     return bal
 
+def spin(symbols):
+    random_symbols = []
+    for i in range(3):
+        random_symbols.append(random.choice(symbols))
 
+    
 
 def main():
     bal= 0
@@ -39,7 +44,8 @@ def main():
     
     bal = Deposit(bal)
 
-    print(f"Your current balance: {bal}")
+    
+    spin(symbols)
 
 
 
